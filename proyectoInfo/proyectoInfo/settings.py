@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.blogInfo'
+    'apps.blogInfo',
+    'apps.blog_auth'
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ ROOT_URLCONF = 'proyectoInfo.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES_BLOG = os.path.join(BASE_DIR, 'templates/blog')
+TEMPLATES_BLOG_AUTH = os.path.join(BASE_DIR, 'templates/blog_auth')
 
 TEMPLATES = [
     {
@@ -128,7 +130,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static')),
 MEDIA ='media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# agregue la media y media root que 
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

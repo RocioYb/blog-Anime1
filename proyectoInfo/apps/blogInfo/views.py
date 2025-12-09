@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .forms import ContactoForm
 
 # Create your views here.
 
@@ -14,4 +15,14 @@ def Categorias(request):
     return render(request, 'categoria.html')
 
 def contacto(request):
-    return render(request, 'contacto.html')
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            # Aquí se puede procesar los datos del formulario
+            datos = form.cleaned_data
+            print(datos)
+            return redirect('home')  # Redirige a la página principal después de enviar el formulario
+    else:
+        form = ContactoForm()
+    
+    return render(request, 'contacto.html', {'form': form})
